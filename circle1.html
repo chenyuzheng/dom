@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.point{
+			width: 1px;
+			height: 1px;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+			/*filter: blur(1px);    模糊*/
+		}
+		.circle{
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: 0.5s;
+			/*background: red;*/
+		}
+	</style>
+	<body>
+		<div class="point"></div>
+	</body>
+</html>
+<script src="js/function.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	let point=document.querySelector('div');
+	let r=100,num=600,every=60,deg=360/every,t=1000;
+	const bili=Math.PI/180;
+	for(let i=0;i<num;i++){
+		let div=document.createElement('div');
+		let degs=i*deg*bili;
+		
+		
+		if(i%every==0){
+			r+=20;
+			t+=1000;
+		}
+		div.style.transitionDelay=`${t}ms`;
+		let lefts=r*Math.cos(degs);
+		let tops=r*Math.sin(degs);
+		div.classList.add('circle');
+		div.appendTo(point);
+		div.style.background=`${Random()}`;
+		setTimeout(()=>{
+			div.style.left=`${lefts}px`;
+			div.style.top=`${tops}px`;
+		},1000)
+	}
+	function Random(){
+		let r=Math.round(Math.random()*255);
+		let g=Math.round(Math.random()*255);
+		let b=Math.round(Math.random()*255);
+		return `rgb(${r},${g},${b})`;
+	}
+</script>

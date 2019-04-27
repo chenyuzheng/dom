@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.box{
+			width: 500px;
+			height: auto;
+			border: 1px solid red;
+		}
+		h1{
+			background: blue;
+		}
+		p{
+			background: gold;
+		}
+	</style>
+	<body>
+		<div>
+		<div class="box">
+			这是第一个
+			<h1>这是第二个</h1>
+			<h1>这是第二个</h1>
+			<h1>这是第二个</h1>
+			<h1>这是第二个</h1>
+			<h1>这是第二个</h1>
+			<h1>这是第二个</h1>
+			<h1>这是第二个</h1>
+			<h1>这是第二个</h1>
+			<p>这是第三个</p>
+			<!--这是注释-->
+		</div>
+		</div>
+	</body>
+</html>
+<script src="js/function.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+ let div=document.querySelector('div');
+	let box=document.querySelector('.box');
+	let box1=document.querySelector('div:first-child');
+	let box2=document.querySelector('div.box');
+	let box3=document.querySelectorAll('.box')[0];
+	let zijiedian=box3.childNodes;
+//	console.log(zijiedian);
+	let ziyuansu=box.children;
+//	console.log(ziyuansu);
+	let first=box.firstChild;
+//	console.log(first);
+	let firsts=box.firstElementChild;
+//	console.log(firsts);
+	let last=box.lastChild;
+//	console.log(last);
+	let lasts=box.lastElementChild;
+//	console.log(lasts);
+//	let fuyuansu=last.parentNode;
+//	console.log(fuyuansu);
+//	let fuyuansu1=last.parentElement;
+//	console.log(fuyuansu1);
+//	let brother=zijiedian[1].previousElementSibling;
+//	console.log(brother);
+//	let brother1=zijiedian[1].previousSibling;
+//	console.log(brother1);
+//	let brother2=zijiedian[1].nextSibling;
+//	console.log(brother2);
+//	let brother3=zijiedian[1].nextElementSibling;
+//	console.log(brother3);
+	
+//	function insertAfter(position,insert){
+//		let brotherNode=position.nextElementSibling;
+//		let ele=position.parentNode;
+//		if(!brotherNode){
+//			ele.appendChild(insert);
+//		}else{
+//		ele.insertBefore(insert,brotherNode);
+//		}
+//	}
+	let create=document.createElement('h3');
+	create.style.cssText=`
+		width:100px;height:100px;
+		background:pink;
+	`;
+//	console.log(firsts.next());
+//	console.log(firsts.nextAll());
+//	firsts.Remove();
+//	box.empty();
+//	console.log(firsts.nextUntil(lasts));
+//	console.log(lasts.Previous());
+//	console.log(lasts.PreviousUntil(firsts));
+//	console.log(box.Parent());
+	console.log(lasts.ParentRange(div));
+
+
+//	firsts.insertAfter(create);
+//	console.log(pre);
+//	box.preInsert(create);
+//	create.preInsertTo(box);
+</script>

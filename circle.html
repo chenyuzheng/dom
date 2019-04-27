@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		.point{
+			width: 1px;
+			height: 1px;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+		.circle{
+			border-radius: 50%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			transition: 0.5s;
+		}
+	</style>
+	<body>
+		<div class="point"></div>
+	</body>
+</html>
+<script type="text/javascript">
+	window.onload=function(){
+	let point=document.querySelector('.point');
+	let pw=window.innerWidth-50;
+	let ph=window.innerHeight-50;
+	for(let i=0;i<30;i++){
+		let widths=Math.round(Math.random()*15+15);
+		let div=document.createElement('div');
+		
+		let lefts=Math.round(Math.random()*pw-pw/2);
+		let tops=Math.random()*ph-ph/2;
+		div.classList.add('circle');
+		div.style.cssText=`
+			width:${widths}px;height:${widths}px;
+			background:${Random()};
+//			left:0;
+//			top:0;
+			border-radius: 50%;
+			transition: 0.5s;
+		`;
+		point.appendChild(div);
+		setTimeout(()=>{
+			div.style.left=`
+				${lefts}px
+			`;
+			div.style.top=`
+				${tops}px
+			`;
+		},1)
+	}
+	}
+	function Random(){
+		let r=Math.round(Math.random()*255);
+		let g=Math.round(Math.random()*255);
+		let b=Math.round(Math.random()*255);
+		return `rgb(${r},${g},${b})`;
+	}
+	
+</script>

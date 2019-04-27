@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+		.box{
+			width:100px;
+			height:100px;
+			background:gold;
+			position:absolute;
+			left:0;
+			top:0;
+		}
+	</style>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>
+<script>
+	let box=document.querySelector('div');
+	let speed=10;
+	let speed1=12;
+	var maxHeight,maxWidth;
+	window.onresize=function(){
+		maxHeight=window.innerHeight-box.offsetHeight;
+		maxWidth=window.innerWidth-box.offsetWidth;
+	}
+	
+	let fn=function(){
+		let top=box.offsetTop;
+		let left=box.offsetLeft;
+		if(top>=maxHeight){
+			speed*=-1;
+		}
+		if(left>=maxWidth){
+			speed1*=-1;
+		}
+		if(top<0){
+			speed*=-1;
+		}
+		if(left<0){
+			speed1*=-1;
+		}
+		box.style.background=`${Random()}`;
+		box.style.top=`${top+speed}px`;
+		box.style.left=`${left+speed1}px`;
+	}
+	let t=setInterval(fn,100);
+	box.onmouseenter=function(){
+		clearInterval(t);
+	}
+	box.onmouseleave=function(){
+		t=setInterval(fn,100);
+	}
+	function Random(){
+		let r=Math.round(Math.random()*255);
+		let g=Math.round(Math.random()*255);
+		let b=Math.round(Math.random()*255);
+		return `rgb(${r},${g},${b})`;
+	}
+</script>
